@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+    api:
+        container_name: go-ms-upload-test
+        build:
+            context: ../
+            dockerfile: ./.devcontainer/test.Dockerfile
+            target: TEST
+        ports:
+            - "8000:8000"
+        volumes:
+        - ../:/go-ms-upload
+        tty: true
