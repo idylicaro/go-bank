@@ -57,3 +57,47 @@ func NewCustomer(name string) (Customer, error) {
 		transactions: make([]valueobject.Transaction, 0),
 	}, nil
 }
+
+// GetID returns the customers root entity ID
+func (c *Customer) GetID() uuid.UUID {
+	return c.person.ID
+}
+
+// SetID sets the root ID
+func (c *Customer) SetID(id uuid.UUID) {
+	if c.person == nil {
+		c.person = &entity.Person{}
+	}
+	c.person.ID = id
+}
+
+// SetName changes the name of the Customer
+func (c *Customer) SetName(name string) {
+	if c.person == nil {
+		c.person = &entity.Person{}
+	}
+	c.person.Name = name
+}
+
+// GetName return the name of the Customer
+func (c *Customer) GetName() string {
+	return c.person.Name
+}
+
+// GetAccountID return the ID of account
+func (c *Customer) GetAccountID() uuid.UUID {
+	return c.account.ID
+}
+
+// SetBalance changes the Balance of the Customer
+func (c *Customer) SetBalance(balance decimal.Decimal) {
+	if c.account == nil {
+		c.account = &entity.Account{}
+	}
+	c.account.Balance = balance
+}
+
+// GetBalance return the Balance of the Customer
+func (c *Customer) GetBalance() decimal.Decimal {
+	return c.account.Balance
+}
