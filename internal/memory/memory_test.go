@@ -52,3 +52,45 @@ func TestMemory_GetCustomer(t *testing.T) {
 		})
 	}
 }
+
+func TestMemory_AddCustomer(t *testing.T) {
+	type testCase struct {
+		name        string
+		custName    string
+		expectedErr error
+	}
+
+	testCases := []testCase{
+		{
+			name:        "Add Customer",
+			custName:    "Percy",
+			expectedErr: nil,
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			repo := MemoryRepository{
+				customers: map[uuid.UUID]aggregate.Customer{},
+			}
+
+			cust, err := aggregate.NewCustomer(tc.custName)
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			err = repo.Add(cust)
+			if err != tc.expectedErr {
+				t.Errorf("Expected error %v, got %v", tc.expectedErr, err)
+			}
+
+			found, err := repo.Get(cust.GetID())
+			if err != nil {
+				t.Fatal(err)
+			}
+			if found.GetID() != cust.GetID() {
+				t.Errorf("Expected %v, got %v", cust.GetID(), found.GetID())
+			}
+		})
+	}
+}
