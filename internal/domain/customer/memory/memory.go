@@ -9,21 +9,21 @@ import (
 	"github.com/idylicaro/go-bank/internal/domain/customer"
 )
 
-// MemoryRepository fulfills the CustomerRepository interface
-type MemoryRepository struct {
+// MemoryCustomerRepository fulfills the CustomerRepository interface
+type MemoryCustomerRepository struct {
 	customers map[uuid.UUID]aggregate.Customer
 	sync.Mutex
 }
 
 // New is a factory function to generate a new repository of customers
-func New() *MemoryRepository {
-	return &MemoryRepository{
+func New() *MemoryCustomerRepository {
+	return &MemoryCustomerRepository{
 		customers: make(map[uuid.UUID]aggregate.Customer),
 	}
 }
 
 // Get finds a customer by ID
-func (mr *MemoryRepository) Get(id uuid.UUID) (aggregate.Customer, error) {
+func (mr *MemoryCustomerRepository) Get(id uuid.UUID) (aggregate.Customer, error) {
 	if customer, ok := mr.customers[id]; ok {
 		return customer, nil
 	}
@@ -31,7 +31,7 @@ func (mr *MemoryRepository) Get(id uuid.UUID) (aggregate.Customer, error) {
 }
 
 // Add will add a new customer to the repository
-func (mr *MemoryRepository) Add(c aggregate.Customer) error {
+func (mr *MemoryCustomerRepository) Add(c aggregate.Customer) error {
 	if mr.customers == nil {
 		// Saftey check if customers is not create, shouldn't happen if using the Factory, but you never know
 		mr.Lock()
@@ -49,7 +49,7 @@ func (mr *MemoryRepository) Add(c aggregate.Customer) error {
 }
 
 // Update will replace an existing customer information with the new customer information
-func (mr *MemoryRepository) Update(c aggregate.Customer) error {
+func (mr *MemoryCustomerRepository) Update(c aggregate.Customer) error {
 	// Make sure Customer is in the repository
 	if _, ok := mr.customers[c.GetID()]; !ok {
 		return fmt.Errorf("customer does not exist: %w", customer.ErrUpdateCustomer)
