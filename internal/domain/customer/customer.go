@@ -1,5 +1,5 @@
 // Package aggregates holds aggregates that combines many entities into a full object
-package aggregate
+package customer
 
 import (
 	"errors"

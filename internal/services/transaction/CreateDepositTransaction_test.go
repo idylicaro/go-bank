@@ -3,7 +3,7 @@ package services
 import (
 	"testing"
 
-	"github.com/idylicaro/go-bank/internal/aggregate"
+	"github.com/idylicaro/go-bank/internal/domain/customer"
 	"github.com/shopspring/decimal"
 )
 
@@ -16,7 +16,7 @@ func TestTransaction_NewDepositTransactionService(t *testing.T) {
 	}
 
 	// Add customer
-	customer, err := aggregate.NewCustomer("Vick")
+	customer, err := customer.NewCustomer("Vick")
 	if err != nil {
 		t.Error(err)
 	}
