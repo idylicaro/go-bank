@@ -1,4 +1,4 @@
-package services
+package transaction
 
 import (
 	"testing"
@@ -16,7 +16,7 @@ func TestTransaction_NewDepositTransactionService(t *testing.T) {
 	}
 
 	// Add customer
-	customer, err := customer.NewCustomer("Vick")
+	customer, err := customer.NewCustomer("Vick", "000.000.000-00")
 	if err != nil {
 		t.Error(err)
 	}
