@@ -1,5 +1,7 @@
 # go-bank
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f67c80c2f5d1492db10b46b6c956518c)](https://app.codacy.com/gh/idylicaro/go-bank?utm_source=github.com&utm_medium=referral&utm_content=idylicaro/go-bank&utm_campaign=Badge_Grade_Settings)
+
 
 
 ## Project structure
