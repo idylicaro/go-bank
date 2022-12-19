@@ -1,5 +1,5 @@
 // Package services holds all the services that connects repositories into a business flow
-package services
+package transaction
 
 import (
 	"github.com/idylicaro/go-bank/internal/domain/customer"

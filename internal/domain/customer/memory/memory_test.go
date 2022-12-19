@@ -9,13 +9,14 @@ import (
 
 func TestMemory_GetCustomer(t *testing.T) {
 	type testCase struct {
-		name        string
 		id          uuid.UUID
+		name        string
+		cpf         string
 		expectedErr error
 	}
 
 	// Create a fake customer to add to repository
-	cust, err := customer.NewCustomer("Percy")
+	cust, err := customer.NewCustomer("Percy", "000.000.000-00")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -56,6 +57,7 @@ func TestMemory_AddCustomer(t *testing.T) {
 	type testCase struct {
 		name        string
 		custName    string
+		custCpf     string
 		expectedErr error
 	}
 
@@ -63,6 +65,7 @@ func TestMemory_AddCustomer(t *testing.T) {
 		{
 			name:        "Add Customer",
 			custName:    "Percy",
+			custCpf:     "000.000.000-00",
 			expectedErr: nil,
 		},
 	}
@@ -73,7 +76,7 @@ func TestMemory_AddCustomer(t *testing.T) {
 				customers: map[uuid.UUID]customer.Customer{},
 			}
 
-			cust, err := customer.NewCustomer(tc.custName)
+			cust, err := customer.NewCustomer(tc.custName, tc.custCpf)
 			if err != nil {
 				t.Fatal(err)
 			}

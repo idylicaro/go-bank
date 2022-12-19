@@ -1,4 +1,4 @@
-package services
+package transaction
 
 import (
 	"github.com/google/uuid"

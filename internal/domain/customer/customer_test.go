@@ -11,6 +11,7 @@ func TestCustomer_NewCustomer(t *testing.T) {
 	type testCase struct {
 		test        string
 		name        string
+		cpf         string
 		expectedErr error
 	}
 
@@ -19,10 +20,19 @@ func TestCustomer_NewCustomer(t *testing.T) {
 		{
 			test:        "Empty Name validation",
 			name:        "",
-			expectedErr: customer.ErrInvalidPerson,
-		}, {
-			test:        "Valid Name",
+			cpf:         "000.000.000-00",
+			expectedErr: customer.ErrInvalidName,
+		},
+		{
+			test:        "Empty CPF validation",
+			name:        "Igor Iure",
+			cpf:         "",
+			expectedErr: customer.ErrInvalidCPF,
+		},
+		{
+			test:        "Valid Customer",
 			name:        "Percy Bolmer",
+			cpf:         "000.000.000-00",
 			expectedErr: nil,
 		},
 	}
@@ -31,7 +41,7 @@ func TestCustomer_NewCustomer(t *testing.T) {
 		// Run Tests
 		t.Run(tc.test, func(t *testing.T) {
 			// Create a new customer
-			_, err := customer.NewCustomer(tc.name)
+			_, err := customer.NewCustomer(tc.name, tc.cpf)
 			// Check if the error matches the expected error
 			if err != tc.expectedErr {
 				t.Errorf("Expected error %v, got %v", tc.expectedErr, err)
