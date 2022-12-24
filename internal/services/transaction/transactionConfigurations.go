@@ -2,7 +2,7 @@ package transaction
 
 import (
 	"github.com/idylicaro/go-bank/internal/domain/customer"
-	customerRepo "github.com/idylicaro/go-bank/internal/domain/customer/memory"
+	customerRepo "github.com/idylicaro/go-bank/internal/infrastructure/repositories/customer/memory"
 )
 
 // WithCustomerRepository applies a given customer repository to the TransactionService
