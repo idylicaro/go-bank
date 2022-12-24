@@ -13,8 +13,9 @@ import (
 
 var (
 	// ErrInvalidName is returned when the name is not valid in the NewCustome factory
-	ErrInvalidName = errors.New("a customer has to have an valid name")
-	ErrInvalidCPF  = errors.New("this cpf is invalid or empty")
+	ErrInvalidName         = errors.New("a customer has to have an valid name")
+	ErrInvalidCPF          = errors.New("this cpf is invalid or empty")
+	ErrInsufficientBalance = errors.New("origin account does not have sufficient balance")
 )
 
 // Customer is a aggregate that combines all entities needed to represent a customer

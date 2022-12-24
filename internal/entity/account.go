@@ -15,8 +15,6 @@ var (
 	ErrAccountOriginNotFound = errors.New("account origin not found")
 
 	ErrAccountDestinationNotFound = errors.New("account destination not found")
-
-	ErrInsufficientBalance = errors.New("origin account does not have sufficient balance")
 )
 
 type Account struct {
