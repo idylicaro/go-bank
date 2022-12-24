@@ -19,6 +19,7 @@ RUN CGO_ENABLED=0 go build -v ./...
 
 FROM base AS test
 
+COPY ../.env.example ../.env
 # Test
 CMD go test -v ./...
 
