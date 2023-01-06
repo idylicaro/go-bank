@@ -58,19 +58,14 @@ func TestTransaction_NewDepositTransactionService(t *testing.T) {
 				t.Error(err)
 			}
 			err = ts.CreateDepositTransaction(customer.GetID(), tc.depositValue)
-			if err != nil {
-				t.Error(err)
+			if err != tc.expectedErr {
+				t.Errorf("Expected error %v, got %v", tc.expectedErr, err)
 			}
 
 			customer, err = ts.customers.Get(customer.GetID())
 			if err != nil {
 				t.Error(err)
 			}
-
-			if err != tc.expectedErr {
-				t.Errorf("Expected error %v, got %v", tc.expectedErr, err)
-			}
-
 			if !customer.GetBalance().Equal(tc.expectedBalance) {
 				t.Errorf("Expected balance %v, got %v", tc.expectedBalance, customer.GetBalance())
 			}
