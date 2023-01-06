@@ -1,5 +1,5 @@
 {
-    "name": "go-ms-upload",
+    "name": "go-bank",
     "dockerComposeFile": [
         "docker-compose.yml"
     ],
