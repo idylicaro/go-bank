@@ -1,4 +1,4 @@
-// Package aggregates holds aggregates that combines many entities into a full object
+// Package customer aggregates holds aggregates that combines many entities into a full object
 package customer
 
 import (
