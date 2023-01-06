@@ -1,4 +1,4 @@
-// Package entities holds all the entities that are shared across all subdomains
+// Package entity entities holds all the entities that are shared across all subdomains
 package entity
 
 import (
