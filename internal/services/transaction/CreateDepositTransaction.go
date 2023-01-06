@@ -5,7 +5,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-// CreateOrder will chaintogether all repositories to create a order for a customer
+// CreateDepositTransaction will create deposit transaction to increase the balance
 func (t *TransactionService) CreateDepositTransaction(customerID uuid.UUID, depositValue decimal.Decimal) error {
 	// Get the customer
 	c, err := t.customers.Get(customerID)

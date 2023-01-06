@@ -6,7 +6,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-// CreateOrder will chaintogether all repositories to create a order for a customer
+// CreateWithdrawTransaction will create withdraw transaction to decrease the balance
 func (t *TransactionService) CreateWithdrawTransaction(customerID uuid.UUID, withdrawValue decimal.Decimal) error {
 	// Get the customer
 	c, err := t.customers.Get(customerID)
