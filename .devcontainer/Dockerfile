@@ -1,9 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/go:1.19 AS devcontainerImage
-# FROM qmcgaw/godevcontainer AS devcontainer
-
-USER root
-
-FROM devcontainerImage as devcontainer
+FROM qmcgaw/godevcontainer AS devcontainer
 
 FROM golang:1.19 as base
 WORKDIR /go-ms-upload

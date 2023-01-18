@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Creating variables.env
-        run: cp .env.example .env
-
       - name: Fetch required Go modules
         run: go mod download
 
