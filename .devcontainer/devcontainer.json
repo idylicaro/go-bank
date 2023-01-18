@@ -1,5 +1,5 @@
 {
-    "name": "go-bank",
+    "name": "go-ms-upload",
     "dockerComposeFile": [
         "docker-compose.yml"
     ],
@@ -10,7 +10,6 @@
     "shutdownAction": "stopCompose",
     "postCreateCommand": "~/.windows.sh && go mod download && go mod tidy",
     "workspaceFolder": "/go/src/github.com/sensixag/go-ms-upload",
-    "remoteUser": "vscode",
     // "overrideCommand": "",
     "extensions": [
         "golang.go",
