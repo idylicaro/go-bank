@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"log"
@@ -9,7 +9,7 @@ import (
 // return the value of the key
 func ViperEnvVariable(key string) string {
 
-	viper.SetConfigFile(".env")
+	viper.SetConfigFile("../.env")
 
 	// Find and read the config file
 	err := viper.ReadInConfig()
