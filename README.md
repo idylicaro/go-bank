@@ -36,9 +36,9 @@
 
 ## Roadmap
 
-- [ ] Create Account module
-    - [ ] Deposit
-    - [ ] Withdraw
+- [x] Create Account module
+    - [x] Deposit
+    - [x] Withdraw
 - [ ] Create Transaction module
     - [ ] Available Electronic Transfer (In brasil is TED)
 - [ ] Create Security module (authentication)
